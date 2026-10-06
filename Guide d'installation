@@ -1,0 +1,166 @@
+========================================================
+        GUIDE D'INSTALLATION - JARVIS  (version 1.0.3)
+        (pour tous, aucune connaissance technique requise)
+========================================================
+
+1) INSTALLER JARVIS
+--------------------------------------------------------
+1. Récupère le fichier "Jarvis-Setup.exe" qu'on t'a
+   transmis (il est assez volumineux, environ 150 à
+   250 Mo, car il contient la voix de Jarvis).
+2. Double-clique dessus.
+3. Si Windows affiche un avertissement de sécurité
+   ("Windows a protégé votre ordinateur"), clique sur
+   "Informations complémentaires" puis "Exécuter quand
+   même". C'est normal pour un programme récent qui
+   n'est pas encore reconnu par Windows.
+4. Suis les étapes de l'installation (clique sur
+   "Suivant" jusqu'à la fin).
+5. Une fois terminé, Jarvis apparaît sur ton Bureau
+   et/ou dans le menu Démarrer.
+
+Si tu avais une ancienne version de Jarvis, installe
+simplement la nouvelle par-dessus : tes réglages et ta
+clé API sont conservés.
+
+--------------------------------------------------------
+2) LANCER JARVIS
+--------------------------------------------------------
+Double-clique UNE SEULE FOIS sur l'icône Jarvis pour
+l'ouvrir. Attends quelques secondes : le premier
+lancement peut être un peu plus long.
+
+Jarvis fonctionne directement, sans rien configurer :
+reconnaissance vocale, commandes, météo, etc.
+
+Pour la reconnaissance vocale, la météo et l'IA, une
+connexion internet est nécessaire. La VOIX de Jarvis,
+elle, fonctionne sans internet.
+
+--------------------------------------------------------
+3) ACTIVER L'IA AVANCÉE (facultatif)
+--------------------------------------------------------
+Certaines réponses plus poussées de Jarvis nécessitent
+une clé API Groq (gratuite). Sans elle, Jarvis reste
+utilisable normalement pour toutes les fonctions de
+base.
+
+Pour l'activer :
+  1. Va sur https://console.groq.com et crée un compte
+     gratuit.
+  2. Génère une clé API (bouton "Create API Key").
+  3. Copie cette clé.
+  4. Dans Jarvis, ouvre les Réglages.
+  5. Colle la clé dans le champ "Clé API Groq".
+  6. Valide.
+
+C'est tout, l'IA avancée est activée.
+
+IMPORTANT : ta clé API est personnelle. Ne la partage
+avec personne et ne l'envoie jamais par message ou
+capture d'écran. Si tu l'as montrée à quelqu'un,
+supprime-la sur console.groq.com et crées-en une
+nouvelle.
+
+--------------------------------------------------------
+4) LA VOIX DE JARVIS
+--------------------------------------------------------
+Jarvis parle avec une voix française intégrée
+(synthèse "Piper"). Elle fonctionne hors-ligne et il
+n'y a rien à installer ni à configurer.
+
+Bon à savoir :
+  - Les emojis ne sont pas lus à voix haute.
+  - Si tu lui parles pendant qu'il répond, il
+    s'arrête pour t'écouter.
+  - Si la voix principale était indisponible, Jarvis
+    utilise automatiquement une voix de secours (voix
+    Windows) pour ne jamais rester muet.
+
+Régler la voix (facultatif, pour les curieux) :
+  1. Ferme complètement Jarvis.
+  2. Ouvre le fichier suivant avec le Bloc-notes :
+       C:\Users\TON_NOM\.jarvis\config.json
+     (astuce : tape  %USERPROFILE%\.jarvis  dans la
+     barre d'adresse de l'Explorateur de fichiers)
+  3. Ajoute ou modifie ces lignes (sans oublier les
+     virgules entre les lignes) :
+
+       "voix_piper_longueur": 1.08,
+       "voix_piper_variation": 0.75,
+       "voix_piper_rythme": 0.9,
+       "voix_piper_pause": 0.30
+
+     - voix_piper_longueur : plus haut = voix plus lente
+       (1.0 = rythme normal).
+     - voix_piper_variation : plus haut = intonation
+       plus vivante (entre 0.4 et 1.0).
+     - voix_piper_rythme : plus haut = rythme moins
+       robotique (entre 0.4 et 1.0).
+     - voix_piper_pause : silence entre deux phrases,
+       en secondes.
+  4. Enregistre, puis relance Jarvis.
+
+Si tu fais une erreur, supprime simplement le fichier
+config.json : Jarvis le recréera avec les réglages par
+défaut (tu devras juste remettre ta clé API).
+
+--------------------------------------------------------
+5) VÉRIFIER LES MISES À JOUR
+--------------------------------------------------------
+1. Ouvre les Réglages de Jarvis.
+2. Clique sur le bouton "🔄 Vérifier les mises à jour".
+
+Deux cas possibles :
+  - "Jarvis est à jour" → tu as déjà la dernière
+    version, rien à faire.
+  - "Nouvelle version disponible" → une page s'ouvre
+    automatiquement dans ton navigateur pour
+    télécharger la nouvelle version.
+
+Tu n'as rien à saisir ni à configurer, un simple clic
+suffit.
+
+--------------------------------------------------------
+6) PROBLÈMES COURANTS
+--------------------------------------------------------
+- "Windows a protégé votre ordinateur" au lancement :
+  Clique sur "Informations complémentaires" puis
+  "Exécuter quand même". C'est normal, Jarvis n'est
+  pas un virus.
+
+- L'antivirus bloque ou supprime Jarvis :
+  Ajoute une exception dans ton antivirus / Windows
+  Defender pour le fichier Jarvis.
+
+- L'IA ne répond pas :
+  Vérifie que tu as bien renseigné une clé API Groq
+  dans Réglages (voir section 3) et que tu es connecté
+  à internet.
+
+- Jarvis ne parle pas / la voix est celle de Windows :
+  Vérifie que le volume n'est pas coupé. Si la voix de
+  secours (Windows) est utilisée, c'est que la voix
+  principale n'a pas pu se charger : réinstalle Jarvis
+  avec le dernier "Jarvis-Setup.exe".
+
+- Plusieurs fenêtres Jarvis s'ouvrent :
+  Tu utilises une ancienne version. Ferme toutes les
+  fenêtres Jarvis (clic droit sur la barre des tâches
+  ou Gestionnaire des tâches > Jarvis > Fin de tâche),
+  puis installe la dernière version.
+
+- Le micro ne fonctionne pas :
+  Va dans Paramètres Windows > Confidentialité >
+  Microphone, et vérifie que l'accès au micro est
+  autorisé pour les applications de bureau.
+
+- En cas de bug : le fichier journal se trouve dans
+    C:\Users\TON_NOM\.jarvis\jarvis.log
+  Envoie-le à la personne qui t'a transmis Jarvis, il
+  permet de comprendre ce qui ne va pas.
+
+========================================================
+Besoin d'aide ? Contacte la personne qui t'a transmis
+Jarvis.
+========================================================
