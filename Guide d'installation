@@ -1,223 +1,154 @@
-============================================================
- GUIDE D'INSTALLATION DE JARVIS 1.2.1
-============================================================
+=====================================================================
+  J.A.R.V.I.S. 2.0  -  GUIDE D'INSTALLATION (UTILISATEUR)
+=====================================================================
+
+Bienvenue ! Ce guide t'explique comment installer et configurer
+JARVIS en quelques minutes. Aucune connaissance technique requise.
 
 
-1. PREREQUIS
-------------------------------------------------------------
-JARVIS 1.2.0 s'installe en quelques minutes sur Windows ; seule la
-cle Groq est indispensable pour activer l'IA.
+---------------------------------------------------------------------
+ 1. CE QU'IL TE FAUT
+---------------------------------------------------------------------
+ - Un PC sous Windows 10 ou 11.
+ - Le fichier  Jarvis-Setup.exe.
+ - Une connexion Internet.
+ - Un micro (celui du PC ou un casque) pour parler a JARVIS.
+ - Une cle Groq GRATUITE (voir etape 4) : c'est le cerveau de JARVIS.
 
- - Windows 10 ou 11, 64 bits.
- - Une cle API Groq (commence par gsk_), gratuite a creer sur
-   console.groq.com. Sans elle, JARVIS demarre mais l'IA reste
-   hors ligne.
- - Une connexion Internet pour l'IA, la meteo, les actualites et
-   la voix Edge.
- - Un micro pour la commande vocale et le mot de reveil
-   (facultatif : le mode texte fonctionne sans).
- - Aucun Python a installer pour utiliser l'installeur : tout est
-   inclus dans Jarvis-Setup.exe.
+ Tu n'as RIEN d'autre a installer : pas de Python, pas de modules.
+ Tout est deja dans Jarvis-Setup.exe.
 
 
-2. INSTALLER JARVIS AVEC Jarvis-Setup.exe
-------------------------------------------------------------
-L'installation se fait pour l'utilisateur courant, sans droits
-administrateur.
-
- 1. Telecharge Jarvis-Setup.exe depuis la derniere Release GitHub
-    du projet (ou depuis le dossier "installateur" si tu l'as
-    compile toi-meme).
- 2. Double-clique dessus. Si Windows SmartScreen affiche un
-    avertissement (l'installeur n'est pas signe), clique sur
-    "Informations complementaires" puis "Executer quand meme".
- 3. Choisis la langue, puis coche si tu veux un raccourci sur le
-    Bureau et le lancement de JARVIS au demarrage de Windows
-    (decoche par defaut).
- 4. Laisse l'installation se terminer et garde "Lancer Jarvis"
-    coche.
-
-Le dossier par defaut est %LocalAppData%\Programs\Jarvis. Si
-JARVIS est deja installe, l'installeur le met a jour au meme
-endroit, sans creer de doublon.
+---------------------------------------------------------------------
+ 2. INSTALLER JARVIS
+---------------------------------------------------------------------
+ 1. Double-clique sur  Jarvis-Setup.exe
+    (Si Windows affiche "Windows a protege votre ordinateur" :
+     clique sur "Informations complementaires" puis "Executer
+     quand meme". C'est normal pour un programme non commercial.)
+ 2. Choisis la langue, puis clique sur "Suivant".
+ 3. Garde le dossier propose (aucun droit administrateur requis).
+ 4. Coche "Creer un raccourci sur le Bureau" si tu veux.
+ 5. Clique sur "Installer", puis "Terminer".
+    JARVIS se lance tout seul.
 
 
-3. PREMIER LANCEMENT ET REGLAGES
-------------------------------------------------------------
-Au premier demarrage, un ecran d'amorcage s'affiche quelques
-secondes, puis la console s'ouvre. Ouvre REGLAGES (bouton en bas)
-et renseigne au minimum la cle Groq, puis clique sur ENREGISTRER :
-l'IA s'active tout de suite, sans redemarrage.
+---------------------------------------------------------------------
+ 3. PREMIER LANCEMENT
+---------------------------------------------------------------------
+ JARVIS affiche sa sequence de demarrage puis te dit bonjour.
+ Attends la fin du chargement avant de parler.
 
- - Cle API Groq : active l'IA, le Chat, l'Atelier et Projets.
-   Valeur : ta cle gsk_...
- - Ton prenom : JARVIS t'appelle ainsi et te tutoie.
- - Ville meteo : meteo et briefing du matin.
- - Mot de reveil : mot qui active la veille vocale (jarvis).
- - Vitesse de la voix : voix Windows uniquement (175 mots/min).
- - Modele IA Groq : "Actualiser" propose une version plus
-   recente. Laisser par defaut.
- - Modele de secours : prend le relais si le principal echoue ;
-   vide = aucun (llama-3.3-70b-versatile).
- - Effets : spectaculaires ou reduits. Reduits si le HUD saccade.
- - Briefing du matin : annonce parlee au premier demarrage de la
-   journee.
-
-Les quatre onglets de la barre laterale :
- - CONSOLE  : commandes texte et voix.
- - ATELIER  : analyse de code.
- - PROJETS  : explorer un dossier.
- - CHAT     : discussions avec pieces jointes, sauvegardees
-              automatiquement.
+ Si Windows demande l'acces au MICRO : clique sur "Oui" / "Autoriser".
+ Sinon JARVIS ne pourra pas t'entendre.
+ (Verification : Parametres Windows > Confidentialite > Microphone,
+  et active l'acces pour les applications de bureau.)
 
 
-4. VOIX, MICRO ET VEILLE
-------------------------------------------------------------
-JARVIS essaie les moteurs de voix dans cet ordre : Piper (local,
-hors ligne), puis Edge (voix neuronale, en ligne), puis la voix
-Windows.
+---------------------------------------------------------------------
+ 4. OBTENIR TA CLE GROQ (gratuite, 2 minutes)
+---------------------------------------------------------------------
+ 1. Va sur  console.groq.com  et cree un compte (gratuit).
+ 2. Menu "API Keys" > "Create API Key". Donne-lui un nom.
+ 3. Copie la cle (elle commence par  gsk_ ).
+    Garde-la pour toi : elle est personnelle.
+ 4. Dans JARVIS : clique sur REGLAGES (en bas a droite), section
+    "Moteur IA", colle la cle et valide.
 
- - Voix Piper : cree un dossier "voix" dans
-   %USERPROFILE%\.jarvis\voix (ou a cote de Jarvis.exe) et mets-y
-   un modele francais : le fichier .onnx et son .onnx.json, avec
-   un nom commencant par fr_. Sans modele, JARVIS retombe
-   automatiquement sur Edge.
- - Voix Edge : aucune installation ; la voix par defaut est
-   fr-FR-HenriNeural, modifiable dans config.json (voix_edge_id).
- - Micro : bouton PARLER pour une phrase, ou bouton VEILLE pour
-   dire "jarvis" puis ta commande. Si aucun micro n'est detecte,
-   un message et une notification l'indiquent.
- - Commandes locales : "stop", "quitte" ou "au revoir" doivent
-   etre dits seuls pour fermer JARVIS ; "diagnostic" donne l'etat
-   de la machine.
+ Sans cette cle, JARVIS demarre mais ne sait pas repondre.
 
 
-5. MAILS, AGENDA ET OPTIONS AVANCEES (config.json)
-------------------------------------------------------------
-Certaines options n'ont pas de champ dans Reglages : modifie le
-fichier %USERPROFILE%\.jarvis\config.json avec JARVIS ferme.
-
- - mail_adresse, mail_mot_de_passe : lecture et envoi de mails ;
-   utilise un mot de passe d'application, pas ton mot de passe
-   principal.
- - mail_imap, mail_smtp, mail_smtp_port : seulement pour un
-   fournisseur non reconnu (Gmail, Outlook, Yahoo, iCloud,
-   Orange, Free... le sont).
- - rappel_pause_minutes : rappel de pause apres N minutes de
-   session ; 0 = jamais (120 par defaut).
- - budget_contexte_jetons : seuil de la jauge de contexte
-   (12000 par defaut).
- - modele_code, modele_vision : modeles distincts pour le code et
-   pour les images.
- - flux_actualites : liste de flux RSS pour les actualites.
-
-Les rappels, notes et taches sont stockes dans agenda.json,
-notes.json et taches.json au meme endroit, et survivent aux
-redemarrages.
+---------------------------------------------------------------------
+ 5. (FACULTATIF) RECHERCHE SUR INTERNET
+---------------------------------------------------------------------
+ Pour que JARVIS cherche sur le web (actualites, meteo, scores...) :
+ 1. Va sur  tavily.com  et cree un compte gratuit
+    (1000 recherches par mois, sans carte bancaire).
+ 2. Copie ta cle (elle commence par  tvly- ).
+ 3. Dans JARVIS : REGLAGES > "Recherche web", colle la cle, valide.
 
 
-6. MISES A JOUR
-------------------------------------------------------------
-JARVIS cherche une nouvelle version au demarrage, en lisant la
-derniere Release GitHub du lien configure dans Reglages ("Lien
-GitHub du projet").
-
- 1. Ouvre REGLAGES : si une version plus recente existe, le
-    bouton devient "Installer la version X".
- 2. Clique dessus : l'installeur est telecharge, son empreinte
-    SHA-256 verifiee, puis JARVIS se ferme, se met a jour et
-    redemarre seul.
- 3. Sinon, clique sur "Verifier les mises a jour" pour lancer la
-    recherche a la main.
-
-L'installation automatique est refusee si la Release ne fournit
-pas d'empreinte SHA-256 ; GitHub la calcule automatiquement pour
-les fichiers ajoutes a une Release. Dans tous les cas, ta
-configuration et tes donnees dans .jarvis sont conservees.
+---------------------------------------------------------------------
+ 6. REGLER LE MICRO ET LA VOIX
+---------------------------------------------------------------------
+ REGLAGES > "Audio" :
+  - Micro : choisis celui que tu utilises.
+  - Sensibilite : monte-la si JARVIS ne t'entend pas, baisse-la
+    s'il se declenche tout seul.
+  - Mot de reveil : "jarvis" par defaut, tu peux le changer.
+  - Vitesse de la voix : a ton gout.
+  - Bouton "Tester la voix" pour verifier.
 
 
-7. COMPILER SOI-MEME L'INSTALLEUR AVEC build.bat
-------------------------------------------------------------
-Cette partie ne concerne que la personne qui publie JARVIS : un
-simple utilisateur n'en a pas besoin.
+---------------------------------------------------------------------
+ 7. UTILISER JARVIS AU QUOTIDIEN
+---------------------------------------------------------------------
+ Pour lui parler :
+  - dis "Jarvis" quand il est en veille, puis ta demande ;
+  - ou appuie sur  Ctrl + Alt + J  depuis n'importe quelle fenetre ;
+  - ou clique sur le bouton VOCAL.
+ Tu peux aussi lui ecrire dans la zone de saisie.
 
- 1. Installe Python 3.10 a 3.12 (case "Add to PATH" cochee) et
-    Inno Setup 6 ou plus recent.
- 2. Installe les modules obligatoires :
-        pip install PySide6 groq requests psutil
-    Modules facultatifs (chacun active une fonction) :
-        SpeechRecognition et pyaudio (micro)
-        pyttsx3 (voix Windows)
-        edge-tts et playsound (voix Edge)
-        piper-tts (voix locale)
-        Pillow (capture d'ecran)
-        pypdf (lecture des PDF)
- 3. Mets dans un meme dossier : jarvis.py, jarvis_gui.py,
-    jarvis_pages.py, jarvis_code.py, jarvis_theme.py,
-    jarvis_outils.py, lire_version.py, jarvis.iss et build.bat.
-    Ajoute jarvis.ico et un dossier "voix" si tu veux l'icone et
-    la voix Piper.
- 4. Lance build.bat. La version est lue dans VERSION_JARVIS de
-    jarvis.py ; l'installeur sort dans
-    installateur\Jarvis-Setup.exe, avec son empreinte SHA-256
-    dans un fichier .sha256.
- 5. Pour refaire seulement l'installeur sans recompiler
-    l'executable : build.bat installeur
- 6. Publie une Release GitHub avec le tag v1.2.0 et joins-y
-    Jarvis-Setup.exe.
+ Exemples :
+   "Quelle heure est-il ?"
+   "Rappelle-moi demain a 8h30 d'appeler le dentiste."
+   "Ouvre YouTube."
+   "Mets le volume a 30."
+   "Cherche les resultats du match d'hier."
+   "Souviens-toi que je prefere les reponses courtes."
+   "Cree une routine mode travail : ouvre Spotify, volume a 30."
+   puis plus tard :  "Lance le mode travail."
+
+ Reglages pratiques (REGLAGES > "Utilisation quotidienne") :
+  - Lancer JARVIS au demarrage de Windows.
+  - La croix reduit JARVIS dans la barre des taches au lieu de le
+    fermer (clic droit sur son icone pour quitter vraiment).
+  - Changer le raccourci Ctrl+Alt+J.
+
+ Menu de gauche : Console, Atelier, Projets, Chat IA, Agenda
+ (taches, notes, rappels), Memoire, Diagnostic.
 
 
-8. DEPANNAGE
-------------------------------------------------------------
-Le journal complet est dans %USERPROFILE%\.jarvis\jarvis.log,
-accessible par le bouton JOURNAL de Reglages.
-
- - "Erreur IA : cle API invalide"
-     Cause : cle absente, mal copiee ou revoquee.
-     Solution : recolle-la dans Reglages puis Enregistrer.
-
- - "Quota atteint"
-     Cause : limite de debit Groq.
-     Solution : attends un instant ou change de modele ; le
-     modele de secours prend le relais.
-
- - "Modele indisponible"
-     Cause : modele retire par Groq.
-     Solution : Reglages, Actualiser les modeles, puis choisis-en
-     un autre.
-
- - IA et voix desactivees au demarrage
-     Cause : mode sans echec apres 3 plantages d'affilee.
-     Solution : consulte le journal, puis bouton "Reactiver
-     toutes les fonctions" dans Reglages.
-
- - Aucun micro detecte
-     Cause : micro debranche ou pyaudio absent.
-     Solution : branche le micro, verifie les reglages de
-     confidentialite de Windows.
-
- - Pas de voix Piper
-     Cause : modele .onnx et .onnx.json introuvables.
-     Solution : verifie le dossier "voix" ; Edge prend le relais
-     en attendant.
-
- - HUD qui saccade
-     Cause : PC modeste.
-     Solution : Reglages, Effets : reduits.
-
- - Fichier refuse dans le Chat ou Projets
-     Cause : nom ou contenu sensible (.env, cles, ~/.jarvis).
-     Solution : normal, ces fichiers ne sont jamais envoyes a
-     l'IA.
+---------------------------------------------------------------------
+ 8. METTRE A JOUR JARVIS
+---------------------------------------------------------------------
+ Page DIAGNOSTIC > bouton "Verifier les mises a jour".
+ Si une nouvelle version existe, clique sur "Installer" : JARVIS la
+ telecharge, la verifie, s'installe et se relance tout seul.
+ Un point jaune apparait dans le menu quand une mise a jour est
+ disponible.
 
 
-9. DESINSTALLATION ET SAUVEGARDE DES DONNEES
-------------------------------------------------------------
-Desinstalle JARVIS par "Applications installees" de Windows. Le
-desinstalleur ne touche pas au dossier %USERPROFILE%\.jarvis, qui
-contient ta cle Groq, ta memoire, tes discussions, notes, taches
-et agenda, ainsi que les journaux.
+---------------------------------------------------------------------
+ 9. EN CAS DE PROBLEME
+---------------------------------------------------------------------
+ Commence toujours par la page DIAGNOSTIC : elle detecte les
+ problemes et explique quoi faire.
 
-Pour sauvegarder ou migrer vers un autre PC, copie ce dossier
-.jarvis ; pour repartir de zero, supprime-le a la main (la cle API
-y est stockee en clair : ne le partage jamais).
+ - JARVIS ne repond pas :
+     la cle Groq est absente ou fausse (etape 4), ou pas d'Internet.
+ - JARVIS ne m'entend pas :
+     verifie l'acces au micro dans Windows (etape 3), puis choisis
+     le bon micro et monte la sensibilite (etape 6).
+ - JARVIS ne parle pas :
+     verifie le volume du PC, puis "Tester la voix" (etape 6).
+ - Ctrl+Alt+J ne fait rien :
+     une autre application utilise cette combinaison. Change-la dans
+     REGLAGES > "Utilisation quotidienne".
+ - La fenetre ne s'ouvre pas :
+     regarde si JARVIS est dans la barre des taches (pres de
+     l'horloge), ou relance-le depuis le menu Demarrer.
+ - Autre souci :
+     page DIAGNOSTIC > "Creer le rapport". Un fichier .zip est cree
+     (sans tes conversations, souvenirs, notes, agenda, mails ni
+     cles) : envoie-le a la personne qui t'a donne JARVIS.
+
+
+---------------------------------------------------------------------
+ 10. DESINSTALLER
+---------------------------------------------------------------------
+ Parametres Windows > Applications > JARVIS > Desinstaller.
+ Tes donnees (souvenirs, agenda, reglages) restent dans le dossier
+ C:\Users\TonNom\.jarvis  : supprime-le pour tout effacer.
+
+=====================================================================
