@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide de JARVIS</title>
+<style>
+:root{--fond:#f6f8fb;--carte:#ffffff;--texte:#1d2633;--doux:#5a6778;--accent:#0b7fab;--accent-fond:#e3f3fa;--bord:#dbe3ec;--ok:#1d7f4e;--ok-fond:#e4f5ec;--att:#9a5b00;--att-fond:#fdf1dc;--code:#eef2f7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--fond:#0d1520;--carte:#132030;--texte:#e3ebf3;--doux:#9fb0c2;--accent:#5ccfee;--accent-fond:#123446;--bord:#21344a;--ok:#5fd39a;--ok-fond:#123326;--att:#f2b25c;--att-fond:#3a2a10;--code:#1b2c40}}
+:root[data-theme="dark"]{--fond:#0d1520;--carte:#132030;--texte:#e3ebf3;--doux:#9fb0c2;--accent:#5ccfee;--accent-fond:#123446;--bord:#21344a;--ok:#5fd39a;--ok-fond:#123326;--att:#f2b25c;--att-fond:#3a2a10;--code:#1b2c40}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.page{max-width:860px;margin:0 auto;padding:28px 16px 80px}
+header{padding:28px 0 8px}
+header .titre{font-size:2.3rem;font-weight:700;letter-spacing:.18em;margin:0}
+header .sous{color:var(--doux);margin:6px 0 0;font-size:1.05rem}
+h2{font-size:1.45rem;margin:46px 0 12px;padding-top:10px;border-top:2px solid var(--bord)}
+h2 .num{display:inline-block;min-width:1.9em;height:1.9em;line-height:1.9em;text-align:center;border-radius:50%;background:var(--accent);color:var(--carte);font-size:.85em;margin-right:10px}
+h3{font-size:1.12rem;margin:26px 0 8px}
+p{margin:10px 0}
+a{color:var(--accent)}
+ol,ul{padding-left:1.4em}
+li{margin:6px 0}
+.carte{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:16px 20px;margin:14px 0}
+.sommaire ol{columns:2;column-gap:32px;margin:6px 0}
+@media (max-width:640px){.sommaire ol{columns:1}}
+.astuce,.attention,.ok{border-radius:10px;padding:12px 16px;margin:14px 0}
+.astuce{background:var(--accent-fond)}
+.attention{background:var(--att-fond)}
+.ok{background:var(--ok-fond)}
+.astuce b:first-child,.attention b:first-child,.ok b:first-child{display:block;margin-bottom:2px}
+.attention b:first-child{color:var(--att)}
+.ok b:first-child{color:var(--ok)}
+.chemin{font-weight:600;white-space:nowrap}
+kbd{font:600 .85em/1 "Segoe UI",system-ui,sans-serif;border:1px solid var(--bord);border-bottom-width:3px;border-radius:6px;padding:3px 7px;background:var(--carte)}
+code{font-family:Consolas,"Cascadia Mono",monospace;background:var(--code);padding:1px 6px;border-radius:5px;font-size:.92em;word-break:break-word}
+.dire{font-style:italic;color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.97rem}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--bord)}
+th{color:var(--doux);font-weight:600;font-size:.88rem;text-transform:uppercase;letter-spacing:.05em}
+.tableau{overflow-x:auto}
+.faq dt{font-weight:700;margin-top:18px}
+.faq dd{margin:4px 0 0 0}
+footer{margin-top:60px;color:var(--doux);font-size:.9rem;text-align:center}
+@media print{body{background:#fff;color:#000;font-size:12pt}.carte,.astuce,.attention,.ok{border:1px solid #bbb;background:#fff}h2{break-after:avoid}h2 .num{background:#000;color:#fff}.sommaire{break-after:page}a{color:#000}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <p class="titre">J.A.R.V.I.S.</p>
+  <p class="sous">Guide d'utilisation : ton assistant personnel, expliqué simplement.</p>
+</header>
+
+<div class="carte">
+  <p><b>JARVIS est un assistant qui vit sur ton ordinateur.</b> Tu lui parles (à la voix ou en écrivant) et il t'aide : il te donne la météo, lance un minuteur, ouvre tes applications, retient tes rendez-vous, cherche une information sur Internet, répond à tes questions…</p>
+  <p>Pas besoin de connaître l'informatique : suis ce guide dans l'ordre, une étape à la fois. Les étapes <b>1 à 3</b> suffisent pour commencer ; tout le reste est facultatif.</p>
+</div>
+
+<nav class="carte sommaire" aria-label="Sommaire">
+  <b>Sommaire</b>
+  <ol>
+    <li><a href="#installer">Installer JARVIS</a></li>
+    <li><a href="#cle">Lui donner son « cerveau » (clé gratuite)</a></li>
+    <li><a href="#parler">Parler à JARVIS</a></li>
+    <li><a href="#ecran">Les pages de JARVIS</a></li>
+    <li><a href="#exemples">Ce que tu peux lui demander</a></li>
+    <li><a href="#agenda">Rappels, tâches et notes</a></li>
+    <li><a href="#memoire">Sa mémoire</a></li>
+    <li><a href="#modes">Les modes (plusieurs actions d'un coup)</a></li>
+    <li><a href="#telephone">Lui parler depuis ton téléphone</a></li>
+    <li><a href="#options">Les options en plus</a></li>
+    <li><a href="#apprend">JARVIS apprend avec toi</a></li>
+    <li><a href="#maj">Les mises à jour</a></li>
+    <li><a href="#vieprivee">Tes données et ta vie privée</a></li>
+    <li><a href="#problemes">En cas de problème</a></li>
+    <li><a href="#desinstaller">Désinstaller JARVIS</a></li>
+  </ol>
+</nav>
+
+<!-- ===================================================== -->
+<h2 id="installer"><span class="num">1</span>Installer JARVIS</h2>
+<p><b>Il te faut :</b> un ordinateur sous <b>Windows 10 ou 11</b>, une connexion Internet, et si tu veux lui parler à la voix, un <b>micro</b> (celui de ton ordinateur portable ou d'un casque suffit) et des haut-parleurs.</p>
+<ol>
+  <li>Double-clique sur le fichier <b>Jarvis-Setup.exe</b> que l'on t'a donné.</li>
+  <li>Windows peut afficher un écran bleu : <span class="chemin">« Windows a protégé votre ordinateur »</span>. C'est normal pour un logiciel fait par un particulier. Clique sur <b>Informations complémentaires</b>, puis sur <b>Exécuter quand même</b>.</li>
+  <li>Clique sur <b>Suivant</b> à chaque étape. Tu peux cocher <b>« Créer un raccourci sur le Bureau »</b> pour le retrouver facilement.</li>
+  <li>À la fin, laisse cochée la case <b>« Lancer JARVIS »</b> et clique sur <b>Terminer</b>.</li>
+</ol>
+<div class="astuce"><b>Bon à savoir</b>L'installation ne demande pas de mot de passe administrateur. JARVIS s'ouvre ensuite depuis le menu Démarrer (tape « JARVIS ») ou le raccourci du Bureau.</div>
+<p>Au premier démarrage, une petite animation de lancement s'affiche : clique dessus pour la passer.</p>
+
+<!-- ===================================================== -->
+<h2 id="cle"><span class="num">2</span>Lui donner son « cerveau » (clé gratuite)</h2>
+<p>Pour comprendre et répondre, JARVIS utilise une intelligence artificielle en ligne appelée <b>Groq</b>. Elle est <b>gratuite</b>, mais il faut une « clé » personnelle, une sorte de code d'accès. Cela prend 3 minutes :</p>
+<ol>
+  <li>Va sur le site <b>console.groq.com</b> avec ton navigateur (Chrome, Edge, Firefox…).</li>
+  <li>Crée un compte : le plus simple est de cliquer sur <b>« Continue with Google »</b> si tu as une adresse Gmail.</li>
+  <li>Dans le menu, clique sur <b>API Keys</b>, puis sur <b>Create API Key</b>. Donne-lui un nom (par exemple <code>JARVIS</code>) et valide.</li>
+  <li>Une longue suite de caractères qui commence par <code>gsk_</code> s'affiche : clique sur le bouton <b>Copier</b> à côté. <b>Attention, elle ne sera montrée qu'une seule fois.</b></li>
+  <li>Dans JARVIS, clique sur <span class="chemin">Réglages</span> (à gauche), onglet <span class="chemin">Général</span>, rubrique <span class="chemin">Moteur IA (Groq)</span>.</li>
+  <li>Clique dans le champ « Colle ta clé API Groq », fais <kbd>Ctrl</kbd> + <kbd>V</kbd> pour coller, puis clique sur <b>OK</b>.</li>
+</ol>
+<div class="ok"><b>C'est prêt !</b>En haut de l'écran, l'indicateur doit passer à <b>« IA EN LIGNE »</b>.</div>
+<div class="attention"><b>Garde ta clé pour toi</b>Ne la donne à personne et ne la publie pas : quelqu'un pourrait l'utiliser à ta place. Si tu penses qu'elle a fuité, supprime-la sur console.groq.com et crées-en une nouvelle.</div>
+
+<!-- ===================================================== -->
+<h2 id="parler"><span class="num">3</span>Parler à JARVIS</h2>
+<h3>En écrivant</h3>
+<p>Tape ta demande dans la barre en bas de l'écran (« Écris à Jarvis… ») et appuie sur <kbd>Entrée</kbd>. Par exemple : <span class="dire">Quel temps fait-il à Lyon ?</span></p>
+<h3>À la voix</h3>
+<ul>
+  <li>Clique sur le bouton <b>VOCAL</b> en bas : JARVIS écoute en continu. Pour attirer son attention, dis <b>« Jarvis »</b> puis ta demande : <span class="dire">Jarvis, mets un minuteur de 10 minutes.</span></li>
+  <li>Le bouton <b>VEILLE</b> le met en pause : il n'écoute plus.</li>
+  <li>Depuis n'importe quelle application, le raccourci <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd> fait apparaître JARVIS.</li>
+  <li>Pour l'interrompre pendant qu'il parle, dis simplement <span class="dire">stop</span>.</li>
+</ul>
+<div class="astuce"><b>Parle naturellement</b>Pas besoin de formules magiques : JARVIS comprend les phrases normales, comme si tu parlais à quelqu'un. S'il n'a pas compris, reformule simplement ou corrige-le (« non, je voulais dire… »).</div>
+<p>Dans le panneau <b>État du système</b> (page Console), vérifie que <b>Synthèse vocale</b> et <b>Micro</b> sont disponibles. Sinon, voir <a href="#problemes">En cas de problème</a>.</p>
+
+<!-- ===================================================== -->
+<h2 id="ecran"><span class="num">4</span>Les pages de JARVIS</h2>
+<p>Le menu à gauche donne accès à toutes les pages :</p>
+<div class="tableau"><table>
+  <tr><th>Page</th><th>À quoi elle sert</th></tr>
+  <tr><td><b>Console</b></td><td>L'écran principal : la conversation, l'état de JARVIS et de ton ordinateur.</td></tr>
+  <tr><td><b>Chat IA</b></td><td>Une discussion écrite plus longue, comme un chat. Tu peux garder plusieurs discussions et joindre un fichier (trombone 📎).</td></tr>
+  <tr><td><b>Agenda</b></td><td>Tes rappels, tes tâches à faire et tes notes.</td></tr>
+  <tr><td><b>Mémoire</b></td><td>Ce que JARVIS a retenu sur toi. Tu peux y ajouter ou effacer des souvenirs.</td></tr>
+  <tr><td><b>Réglages</b></td><td>Tous les paramètres : clé, voix, micro, téléphone, connexions…</td></tr>
+  <tr><td><b>Diagnostic</b></td><td>La santé de JARVIS et les <b>mises à jour</b>.</td></tr>
+  <tr><td><b>Atelier</b> et <b>Projets</b></td><td>Pour les personnes qui programment (aide sur du code). Tu peux les ignorer.</td></tr>
+</table></div>
+
+<!-- ===================================================== -->
+<h2 id="exemples"><span class="num">5</span>Ce que tu peux lui demander</h2>
+<p>Quelques exemples pour commencer. Il en comprend beaucoup d'autres : essaie !</p>
+<div class="tableau"><table>
+  <tr><th>Pour…</th><th>Dis ou écris par exemple</th></tr>
+  <tr><td>L'heure, la date, la météo</td><td><span class="dire">Quelle heure est-il ?</span> · <span class="dire">Il va pleuvoir demain à Nantes ?</span></td></tr>
+  <tr><td>Un minuteur</td><td><span class="dire">Mets un minuteur de 12 minutes pour les pâtes</span> · <span class="dire">Annule le minuteur des pâtes</span></td></tr>
+  <tr><td>Un rappel</td><td><span class="dire">Rappelle-moi d'appeler le dentiste demain à 9 h</span> · <span class="dire">Qu'est-ce que j'ai cette semaine ?</span></td></tr>
+  <tr><td>Ouvrir ou fermer un programme</td><td><span class="dire">Ouvre Spotify</span> · <span class="dire">Ferme Word</span> · <span class="dire">Ouvre YouTube</span></td></tr>
+  <tr><td>Le son et l'écran</td><td><span class="dire">Mets le volume à 30</span> · <span class="dire">Coupe le son</span> · <span class="dire">Baisse la luminosité</span> · <span class="dire">Pause</span> / <span class="dire">Musique suivante</span></td></tr>
+  <tr><td>Une question, une explication</td><td><span class="dire">Explique-moi la photosynthèse simplement</span> · <span class="dire">Donne-moi une idée de repas avec des courgettes</span></td></tr>
+  <tr><td>L'actualité, Internet</td><td><span class="dire">Quelles sont les infos du jour ?</span> · <span class="dire">Cherche les horaires de la piscine de Rennes</span></td></tr>
+  <tr><td>Un calcul, une conversion</td><td><span class="dire">Combien font 18 % de 240 ?</span> · <span class="dire">Convertis 50 dollars en euros</span></td></tr>
+  <tr><td>Tes fichiers</td><td><span class="dire">Ouvre mon document « CV »</span> · <span class="dire">Retrouve le devis de la cuisine</span></td></tr>
+  <tr><td>Ce qu'il y a à l'écran</td><td><span class="dire">Regarde mon écran et explique-moi ce message d'erreur</span></td></tr>
+  <tr><td>Un résumé de ta journée</td><td><span class="dire">Fais le bilan de ma journée</span> · <span class="dire">Briefing du matin</span></td></tr>
+  <tr><td>Une recherche plus longue</td><td><span class="dire">Lance une mission : compare les trois meilleurs aspirateurs robots</span> (JARVIS travaille en arrière-plan et te prévient quand c'est fini)</td></tr>
+  <tr><td>Éteindre l'ordinateur</td><td><span class="dire">Éteins l'ordinateur</span> (JARVIS te demande toujours de confirmer)</td></tr>
+</table></div>
+
+<!-- ===================================================== -->
+<h2 id="agenda"><span class="num">6</span>Rappels, tâches et notes</h2>
+<ul>
+  <li><b>Rappels</b> : dis <span class="dire">Rappelle-moi de… à telle heure</span>, ou va dans la page <b>Agenda</b> : écris « Quoi ? » et « Quand ? » (par exemple « demain 8h30 », « vendredi 18h », « dans 2 heures »), choisis si ça se répète, puis <b>Ajouter</b>. JARVIS te prévient le moment venu, même s'il a été redémarré entre-temps.</li>
+  <li><b>Tâches</b> : <span class="dire">Ajoute « acheter du pain » à mes tâches</span>, puis <span class="dire">Quelles sont mes tâches ?</span> et <span class="dire">La tâche 1 est faite</span>.</li>
+  <li><b>Notes</b> : <span class="dire">Note que le code du portail est au dos du carnet</span>, puis <span class="dire">Lis mes notes</span>.</li>
+</ul>
+
+<!-- ===================================================== -->
+<h2 id="memoire"><span class="num">7</span>Sa mémoire</h2>
+<p>JARVIS peut se souvenir de choses sur toi pour mieux t'aider : <span class="dire">Retiens que je préfère le thé au café</span>, <span class="dire">Retiens que ma sœur s'appelle Léa</span>.</p>
+<ul>
+  <li>Pour voir ce qu'il sait : <span class="dire">Que sais-tu sur moi ?</span> ou la page <b>Mémoire</b>.</li>
+  <li>Pour lui faire oublier quelque chose : <span class="dire">Oublie que je préfère le thé</span>, ou la page <b>Mémoire</b>.</li>
+  <li>Plusieurs personnes à la maison ? Dans <span class="chemin">Réglages › Général › Profils</span>, chacun peut avoir sa propre mémoire. À la voix : <span class="dire">Passe sur le profil Léa</span>.</li>
+</ul>
+
+<!-- ===================================================== -->
+<h2 id="modes"><span class="num">8</span>Les modes (plusieurs actions d'un coup)</h2>
+<p>Un « mode » enchaîne plusieurs actions avec une seule phrase. Par exemple, un mode « travail » qui ouvre ton navigateur et ta musique et règle le volume ; un mode « soirée » qui baisse la luminosité.</p>
+<ol>
+  <li>Va dans <span class="chemin">Réglages › Modes</span>.</li>
+  <li>Pars d'un modèle proposé, donne un nom à ton mode, ajoute ou retire des actions avec <b>+</b>.</li>
+  <li>Clique sur <b>Enregistrer le mode</b>.</li>
+  <li>Ensuite, dis <span class="dire">Lance le mode travail</span>.</li>
+</ol>
+<p>Tu peux aussi demander à JARVIS d'en créer un : <span class="dire">Crée un mode cinéma qui baisse la luminosité et met le volume à 60</span>. Dans <span class="chemin">Réglages › Modes › Automatisations</span>, un mode peut même se lancer tout seul à une heure précise.</p>
+<div class="astuce"><b>Bon à savoir</b>Si un mode éteint l'ordinateur, JARVIS laisse un compte à rebours : dis <span class="dire">Annule l'extinction</span> pour l'arrêter.</div>
+
+<!-- ===================================================== -->
+<h2 id="telephone"><span class="num">9</span>Lui parler depuis ton téléphone</h2>
+<p>Deux façons, au choix. <b>Telegram est la plus simple.</b> Dans les deux cas, ton ordinateur doit être <b>allumé</b> avec JARVIS ouvert : si le PC est éteint, ton message attend et JARVIS y répondra au prochain démarrage.</p>
+<h3>Avec Telegram (conseillé)</h3>
+<ol>
+  <li>Installe l'application <b>Telegram</b> sur ton téléphone et crée un compte.</li>
+  <li>Dans Telegram, cherche <b>@BotFather</b> et écris-lui <code>/newbot</code>. Choisis un nom (par exemple « Mon Jarvis »), puis un identifiant qui finit par <code>bot</code> (par exemple <code>monjarvis123_bot</code>).</li>
+  <li>BotFather te donne un <b>jeton</b> (une suite de chiffres, deux-points, et de lettres). Copie-le.</li>
+  <li>Dans JARVIS : <span class="chemin">Réglages › Connexions › Telegram</span>, colle le jeton, clique sur <b>Relier</b>.</li>
+  <li>Clique sur <b>Appairer mon compte Telegram</b> : JARVIS affiche un code. Envoie ce code à ton bot dans Telegram.</li>
+</ol>
+<p>C'est fait : écris ou envoie un message vocal à ton bot, JARVIS te répond. Par sécurité, depuis le téléphone, il ne peut ni ouvrir de programmes, ni éteindre le PC, ni envoyer de mails.</p>
+<h3>Avec l'application web (Tailscale)</h3>
+<p>Pour avoir l'écran de JARVIS sur ton téléphone, va dans <span class="chemin">Réglages › Téléphone</span> et suis la liste de vérification : elle t'indique pas à pas quoi installer (l'application gratuite <b>Tailscale</b>, sur le PC et sur le téléphone, avec le même compte) et affiche un QR code à scanner.</p>
+
+<!-- ===================================================== -->
+<h2 id="options"><span class="num">10</span>Les options en plus</h2>
+<p>Rien de tout ceci n'est obligatoire. Active seulement ce qui t'intéresse.</p>
+<div class="tableau"><table>
+  <tr><th>Option</th><th>Ce qu'elle apporte</th><th>Où la régler</th></tr>
+  <tr><td><b>Recherche web</b></td><td>JARVIS lit lui-même les résultats de recherche au lieu d'ouvrir Google. Clé gratuite sur <b>tavily.com</b> (1 000 recherches par mois).</td><td><span class="chemin">Réglages › Général › Recherche web</span></td></tr>
+  <tr><td><b>Mails</b></td><td>JARVIS lit tes mails non lus et prépare des réponses. Il n'envoie <b>jamais</b> rien sans ton accord. Il faut un « mot de passe d'application » (voir l'explication à l'écran).</td><td><span class="chemin">Réglages › Général › Mail</span></td></tr>
+  <tr><td><b>Google (Gmail + Agenda)</b></td><td>Relie ton Gmail et ton Google Agenda. La mise en place prend environ 5 minutes et demande un peu de patience : suis les étapes affichées, ou fais-toi aider la première fois.</td><td><span class="chemin">Réglages › Connexions › Google</span></td></tr>
+  <tr><td><b>Voix plus naturelle</b></td><td>La voix « Piper » est plus agréable que la voix Windows. Elle se télécharge toute seule ; sinon, bouton <b>Télécharger la voix Piper</b>.</td><td><span class="chemin">Réglages › Audio</span></td></tr>
+  <tr><td><b>Cerveau sur ton PC</b></td><td>Avec le logiciel gratuit <b>Ollama</b> (ollama.com), les demandes simples sont traitées sur ton ordinateur : plus rapide, sans limite. Conseillé si ton PC a une carte graphique.</td><td><span class="chemin">Réglages › Général › Cerveau local</span></td></tr>
+  <tr><td><b>Spotify</b></td><td>Lancer une playlist à la voix (compte Spotify Premium).</td><td><span class="chemin">Réglages › Modes › Spotify</span></td></tr>
+  <tr><td><b>Maison connectée</b></td><td>Lumières, chauffage, volets si tu as <b>Home Assistant</b>.</td><td><span class="chemin">Réglages › Général › Maison</span></td></tr>
+  <tr><td><b>Démarrage avec Windows</b></td><td>JARVIS se lance tout seul quand tu allumes l'ordinateur.</td><td><span class="chemin">Réglages › Système › Utilisation quotidienne</span></td></tr>
+  <tr><td><b>Apparence</b></td><td>Couleurs, sons discrets, animations réduites (pour les petits ordinateurs).</td><td><span class="chemin">Réglages › Général › Thème</span> et <span class="chemin">Réglages › Système › Affichage</span></td></tr>
+</table></div>
+
+<!-- ===================================================== -->
+<h2 id="apprend"><span class="num">11</span>JARVIS apprend avec toi</h2>
+<h3>Ses leçons de la nuit</h3>
+<p>Chaque nuit, JARVIS relit sa journée : il repère les moments où tu as dû le corriger et tes habitudes. Il en tire des « leçons » pour faire mieux le lendemain, et peut te proposer de nouveaux modes. Tout se trouve dans <span class="chemin">Réglages › Évolution</span>, où tu acceptes ou refuses ses propositions. Il ne touche jamais à tes réglages ni à la sécurité, et tout peut être annulé.</p>
+<h3>Mon modèle (facultatif)</h3>
+<p>JARVIS peut aussi fabriquer <b>sa propre petite intelligence artificielle</b>, entraînée chaque nuit sur ton ordinateur, pour comprendre tes commandes habituelles sans passer par Internet.</p>
+<ol>
+  <li>Va dans <span class="chemin">Réglages › Général › Mon modèle</span> et clique sur <b>Installer l'entraînement</b> (environ 3 Go à télécharger, une seule fois).</li>
+  <li>Utilise JARVIS normalement pendant quelques jours : il note tes commandes dans un carnet (sans tes mails ni tes mots de passe).</li>
+  <li>Il s'entraîne la nuit, si l'ordinateur est allumé. Au début, il se contente d'<b>observer</b> et de deviner en silence.</li>
+  <li>Quand l'écran indique « Prêt à passer en mode actif », tu peux choisir le rôle <b>Actif</b> : il exécutera alors lui-même les commandes qu'il maîtrise.</li>
+</ol>
+<p>Il n'agit que lorsqu'il est sûr de lui, et jamais pour les mails, l'extinction ou les suppressions.</p>
+
+<!-- ===================================================== -->
+<h2 id="maj"><span class="num">12</span>Les mises à jour</h2>
+<p>JARVIS vérifie tout seul s'il existe une nouvelle version. Pour le faire à la main :</p>
+<ol>
+  <li>Va dans la page <b>Diagnostic</b>, rubrique <b>Mises à jour</b>.</li>
+  <li>Clique sur <b>Vérifier maintenant</b>.</li>
+  <li>Si une version est disponible, clique sur <b>Installer</b> : JARVIS la télécharge, vérifie qu'elle n'a pas été modifiée, se ferme et se relance tout seul.</li>
+</ol>
+<p>Tes réglages, ta mémoire et ton agenda sont conservés.</p>
+
+<!-- ===================================================== -->
+<h2 id="vieprivee"><span class="num">13</span>Tes données et ta vie privée</h2>
+<ul>
+  <li><b>Ce qui reste sur ton ordinateur :</b> ta mémoire, ton agenda, tes notes, tes réglages, tes clés et le carnet de « Mon modèle ». Ils sont rangés dans le dossier <code>.jarvis</code> de ton dossier personnel Windows.</li>
+  <li><b>Ce qui part sur Internet :</b> les phrases que tu adresses à JARVIS sont envoyées à Groq pour qu'il puisse y répondre (sauf celles traitées par Ollama ou « Mon modèle » sur ton PC). Les recherches web passent par Tavily ou Google, la météo par un service météo.</li>
+  <li><b>Le micro :</b> quand le réveil local « Hey Jarvis » est activé (<span class="chemin">Réglages › Audio</span>), rien ne part sur Internet tant que tu n'as pas appelé JARVIS.</li>
+  <li><b>Sauvegardes :</b> JARVIS fait une copie de tes données chaque semaine (<span class="chemin">Réglages › Système › Sauvegarde</span>). Elle contient tes clés : <b>ne la partage pas</b>.</li>
+  <li>JARVIS ne déverrouille jamais une porte, ne désarme jamais une alarme, et ne fait rien d'important (envoyer un mail, éteindre l'ordinateur) sans te demander confirmation.</li>
+</ul>
+
+<!-- ===================================================== -->
+<h2 id="problemes"><span class="num">14</span>En cas de problème</h2>
+<dl class="faq">
+  <dt>En haut, c'est écrit « IA HORS LIGNE ».</dt>
+  <dd>La clé Groq manque ou ne fonctionne plus. Vérifie ta connexion Internet, puis recommence l'<a href="#cle">étape 2</a> avec une nouvelle clé.</dd>
+
+  <dt>« Micro : Indispo. » ou JARVIS ne m'entend pas.</dt>
+  <dd>Ouvre les <b>Paramètres de Windows › Confidentialité et sécurité › Microphone</b> et active « Autoriser les applications de bureau à accéder au microphone ». Vérifie aussi le micro choisi et la <b>Sensibilité du micro</b> dans <span class="chemin">Réglages › Audio</span>. Parle à environ 50 cm du micro.</dd>
+
+  <dt>JARVIS ne parle pas, ou « Synthèse vocale : Indispo. ».</dt>
+  <dd>Vérifie que le son de l'ordinateur n'est pas coupé. Dans <span class="chemin">Réglages › Audio</span>, essaie le moteur de voix <b>Voix Windows</b> et clique sur <b>Écouter un exemple</b>.</dd>
+
+  <dt>Il me répond « je n'ai pas bien saisi ».</dt>
+  <dd>Reformule ta phrase plus simplement, ou écris-la. Ses leçons de la nuit l'aideront à mieux comprendre la prochaine fois.</dd>
+
+  <dt>Il répond lentement, ou dit avoir atteint une limite.</dt>
+  <dd>La version gratuite de Groq a un quota par jour : il se renouvelle le lendemain. Le niveau du quota s'affiche dans <span class="chemin">Réglages › Général › Cerveau local</span>. Installer Ollama (voir <a href="#options">Les options en plus</a>) réduit beaucoup ce problème.</dd>
+
+  <dt>La fenêtre de JARVIS a disparu.</dt>
+  <dd>Il est sans doute réduit près de l'horloge, en bas à droite de l'écran (clique sur la petite flèche <b>^</b> si besoin). Clique sur son icône, ou fais <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>.</dd>
+
+  <dt>Rien ne marche comme prévu.</dt>
+  <dd>Va dans la page <b>Diagnostic</b> : JARVIS y vérifie lui-même son état et propose des solutions. Le bouton <b>Créer le rapport</b> prépare un résumé à envoyer à la personne qui t'a donné JARVIS, pour qu'elle puisse t'aider. En dernier recours, ferme JARVIS (bouton <b>Quitter</b>) et relance-le.</dd>
+</dl>
+
+<!-- ===================================================== -->
+<h2 id="desinstaller"><span class="num">15</span>Désinstaller JARVIS</h2>
+<ol>
+  <li>Ouvre les <b>Paramètres de Windows › Applications › Applications installées</b>.</li>
+  <li>Cherche <b>JARVIS</b>, clique sur <b>…</b> puis <b>Désinstaller</b>.</li>
+</ol>
+<p>Tes données (mémoire, agenda, réglages) restent dans le dossier <code>.jarvis</code>, au cas où tu le réinstallerais. Pour <b>tout effacer</b>, supprime aussi ce dossier : ouvre l'Explorateur de fichiers, tape <code>%USERPROFILE%</code> dans la barre d'adresse, puis supprime le dossier <code>.jarvis</code>.</p>
+
+<footer>
+  <p>J.A.R.V.I.S. — Just A Rather Very Intelligent System. Bonne découverte !</p>
+</footer>
+
+</div>
+</body>
+</html>
